@@ -1,0 +1,246 @@
+<div class="container" id="registration">
+    <h1>Customer Registration</h1>
+    <div id="alert" class="alert alert-success alert-dismissible fade show" role="alert">
+      <strong>Success!</strong> You have registered customer successfully
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      </div>
+      <form ngForm #form = "ngForm" 
+      (ngSubmit)="handleFormData(form)"
+      action="/employee/register" 
+      method="POST" >
+      <div class="row">
+      <div class="col-md-6">
+      <div class="form-group">
+          <label for="customerId">
+          Customer Id
+          <ng-container>
+              <span #warningmsgcustomer id="warningmsgcustomer" name="warningmsgcustomer" 
+              class="badge badge-warning" 
+              style="margin:5px;background-size: 10px;font-size: 10px"></span>
+          </ng-container>
+          </label>
+          <input 
+          type="number" (keyup)="verifyCustomerId(customerId.value,warningmsgcustomer.id)"
+          ngModel 
+          required
+          #customerId="ngModel"
+          class="form-control" 
+          name = "customerId" 
+          id="customerId" 
+          placeholder="Enter Customer Id">
+          <div class="badge badge-warning" *ngIf="customerId.touched && customerId.invalid">
+            <span *ngIf="customerId.errors.required">Customer Id is required</span>
+          </div>
+        </div>
+      </div>
+       <div class="col-md-6">
+        <div class="form-group">
+          <label for="customerName">Customer Name
+          </label>
+          <input 
+          type="text" 
+          ngModel 
+          required
+          #customerName="ngModel"
+          class="form-control" 
+          name = "customerName" 
+          id="customerName" 
+          placeholder="Enter Customer Name">
+          <div class="badge badge-warning" *ngIf="customerName.touched && customerName.invalid">
+            <span *ngIf="customerName.errors.required">Customer Name is required</span>
+          </div>
+        </div>
+      </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+        <div class="form-group">
+          <label for="password">Password
+          </label>
+          <input 
+          type="password"  
+          class="form-control" 
+          ngModel 
+          required
+          minlength="8"
+          #password="ngModel"
+          name="password" 
+          id="password" 
+          placeholder="Enter Password">
+          <div class="badge badge-warning" *ngIf="password.touched && password.invalid">
+            <span *ngIf="password.errors.required">Password is required</span>
+            <span *ngIf="password.errors.minlength">Your password is too short</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+            <label for="confirmpassword">Confirm Password
+                <ng-container>
+                    <span #warningmsgpwd id="warningmsgpwd" name="warningmsgpwd" class="badge badge-warning" style="margin:5px;background-size: 10px;font-size: 10px"></span>
+                </ng-container>
+            </label>
+            <input 
+            type="password"   (keyup)="verifyPasswordConfirmPassword(password.value,confirmpassword.value,warningmsgpwd.id)"
+            class="form-control" 
+            ngModel 
+            required
+            minlength="8"
+            #confirmpassword="ngModel"
+            name="comfirmpassword" 
+            id="confirmpassword" 
+            placeholder="Re-enter Password">
+            <div class="badge badge-warning" *ngIf="confirmpassword.touched && confirmpassword.invalid">
+              <span *ngIf="confirmpassword.errors.required">Confirm Password is required</span>
+              <span *ngIf="confirmpassword.errors.minlength">Your password is too short</span>
+            </div>
+          </div>
+      </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+        <div class="form-group">
+          <label for="emailId">Email Address
+              <ng-container>
+                  <span #warningmsgemail id="warningmsgemail" name="warningmsgemail" class="badge badge-warning" style="margin:5px;background-size: 10px;font-size: 10px"></span>
+              </ng-container>
+          </label>
+          <input 
+          type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" (keyup)="verifyEmailId(emailId.value,warningmsgemail.id)"
+          class="form-control" 
+          id="emailId" 
+          ngModel 
+          required
+          #emailId="ngModel"
+          name="emailId" 
+          placeholder="Enter Email Address"/>
+          <div [hidden]="!emailId.errors?.pattern">
+            <span class="badge badge-warning" >Invalid Email Id</span>
+          </div> 
+        <div class="badge badge-warning" *ngIf="emailId.touched && emailId.invalid">
+            <span *ngIf="emailId.errors.required">Email ID is required</span>
+          </div>
+        </div>
+        </div>
+        <div class="col-md-6">
+        <div class="form-group">
+          <label for="dob">Date Of Birth
+          </label>
+          <input type="date" 
+          class="form-control" 
+          ngModel 
+          required
+          #dob="ngModel"
+          id="dob" 
+          name="dob" 
+          placeholder="Enter Date of Birth">
+          <div class="badge badge-warning" *ngIf="dob.touched && dob.invalid">
+            <span *ngIf="dob.errors.required">Date Of Birth is required</span>
+        </div>
+        </div>
+      </div>
+    </div>
+      <div class="row">
+      <div class="col-md-12">
+      <div class="form-group">
+        <label for="address">Residential Address
+        </label>
+        <input 
+        type="text" 
+        class="form-control" 
+        ngModel 
+        required
+        #address="ngModel"
+        id="address"  
+        name="address" 
+        placeholder="Enter Residential Address">
+        <div class="badge badge-warning" *ngIf="address.touched && address.invalid">
+          <span *ngIf="address.errors.required">Residential Address is required</span>
+      </div>
+      </div>
+    </div>
+    </div>
+      <div class="row">
+        <div class="col-md-4">
+        <div class="form-group">
+          <label for="aadharNo">Aadhar Card Number
+          </label>
+          <input 
+          type="text" 
+          class="form-control" 
+          ngModel 
+          required
+          minlength="12"
+          maxlength="12"
+          #aadharNo="ngModel"
+          id="aadharNo" 
+          name="aadharNo" 
+          pattern="[0-9]{12}"
+          placeholder="Enter Aadhar Card Number"/>
+          <div [hidden]="!aadharNo.errors?.pattern">
+            <span class="badge badge-warning" >Invalid Aadhar Card Number</span>
+        </div> 
+        <div class="badge badge-warning" *ngIf="aadharNo.touched && aadharNo.invalid">
+          <div *ngIf="aadharNo.errors.required">
+            <span>Aadhar Card Number is required</span>
+          </div>
+        </div>
+        </div>
+        </div>
+        <div class="col-md-4">
+        <div class="form-group">
+          <label for="pancardNo">Pan Card Number
+          </label>
+          <input 
+          type="text" 
+          class="form-control" 
+          id="pancardNo" 
+          ngModel 
+          required
+          maxlength="10"
+          #pancardNo="ngModel"
+          name="pancardNo" 
+          pattern="[A-Za-z]{5}[0-9]{4}[A-Za-z]{1}"
+          placeholder="Enter Pan Card Number">
+          <div [hidden]="!pancardNo.errors?.pattern">
+            <span class="badge badge-warning">Invalid Pan Card number</span>
+        </div>
+        <div class="badge badge-warning" *ngIf="pancardNo.touched && pancardNo.invalid">
+          <div *ngIf="pancardNo.errors.required">
+            <span>Pan Card Number is required</span>
+          </div>
+        </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+         <div class="form-group">
+          <label for="phoneNo">Phone Number
+          </label>
+          <input 
+          type="text" 
+          ngModel 
+          required
+          #phoneNo="ngModel"
+          class="form-control" 
+          id="phoneNo" 
+          name="phoneNo" 
+          maxlength="10"
+          pattern="[0-9]{10}"
+          placeholder="Enter Phone Number">
+          <div [hidden]="!phoneNo.errors?.pattern">
+            <span class="badge badge-warning" >Invalid Phone Number</span>
+        </div> 
+        <div class="badge badge-warning" *ngIf="phoneNo.touched && phoneNo.invalid">
+          <div *ngIf="phoneNo.errors.required">
+            <span>Phone Number is required</span>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+      <button type="submit" [disabled]="form.invalid || failedCustomVerification()"
+      class="submit">Register</button>
+    </form>
+    </div>

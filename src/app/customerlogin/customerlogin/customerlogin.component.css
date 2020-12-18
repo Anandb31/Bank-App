@@ -1,0 +1,42 @@
+#maindiv{
+    width:600px;
+    height:400px;
+    margin-top:30px;
+    padding-left:15px;
+    background-color: #ff3636;
+}
+form{
+    padding:90px;
+}
+
+#customerId{
+    width:400px;
+}
+#password{
+    width:400px;
+}
+label{
+    color:white;
+    /* font-family:"Comic Sans MS", cursive, sans-serif; */
+    font-size:20px;
+}
+
+button{
+    width:120px;
+    color:white;
+}
+.submitlogin{
+    background-color:  white;
+    /* border: 3px solid black; */
+    color: #ff3636;
+    font-size: 20px;
+    margin-top:16px;
+    margin-left: 130px;
+    border-radius: 5px;
+    position: absolute;
+}
+
+
+#myModal{
+    display: none;
+}

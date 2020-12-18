@@ -1,0 +1,54 @@
+<div class="container" id="moneytransfer">
+    <h1>Customer Money Transaction</h1>
+    <div id="alerting" class="alert alert-warning alert-dismissible fade show" role="alert" style="display:none;">
+      <p id="message" >....</p>
+      <!-- <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="showAlertChanged()">
+        <span aria-hidden="true">&times;</span>
+      </button> -->
+    </div>
+      <form 
+      method="POST" >
+      <div class="form-row">
+        <div class="form-group col-md-6" >
+              <label for="typeOfTransaction">Type of Transaction</label>
+              <select class="form-control"  [(ngModel)]="typeOfTransaction" 
+                  required  name="Select Transaction type">
+                   <option>none</option>
+                <option >Debit</option>
+                
+              </select>
+        </div>
+        <div class="form-group col-md-6" >
+            <label for="fromAccountId">From Account Number</label>
+            <select class="form-control"  [(ngModel)]="fromAccountId"
+                required name="Select Account Id to Debit">
+                <option>Select Account Id to Debit</option>
+              <option *ngFor="let account of allAccounts">{{account.accountNumber}}</option>
+  
+            </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="toAccountId">To Account Number</label>
+          <input 
+          type="number" 
+          class="form-control" 
+          required
+          name="toAccountId" 
+          [(ngModel)]="toAccountId"
+          placeholder="Select Account Id to credit">
+         </div>
+        <div class="form-group col-md-6">
+          <label for="transactionAmount">Transaction Amount</label>
+          <input type="number" 
+          class="form-control" 
+          required
+          name="transactionAmount" 
+          [(ngModel)]= "transactionAmount"
+          placeholder="Enter Transaction Amount">
+        </div>
+      </div>
+      <button type="submit" class="submit" (click)="doTransaction()">Transfer</button>
+    </form>
+    </div>

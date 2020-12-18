@@ -1,0 +1,72 @@
+<h6>Online Statement</h6>
+<div class="card" style="padding:5px">
+      <div class="row">
+          <div class="col-md-3">
+              <label>From Date</label>
+              <input type="date" [(ngModel)]="fromDate" name="fromDate"/>
+           </div>
+           <div class="col-md-3">
+              <label>To Date</label> <br>
+              <input type="date" [(ngModel)]="toDate" name="toDate"/>
+            </div>
+            <div class="col-md-3">
+                <label>&nbsp;</label>
+                <input type="button" id="submit" value="Filter" class="btn btn-primary" (click)="filterTransactions()" /> &nbsp;
+                <input type="button" id="reset" value="Reset" class="btn btn-warning" (click)="filterReset()" />
+            </div>
+            <div class="col-md-3">
+                <label for="fromAccountId">Account Id<label></label>
+                </label>
+                <select class="form-control"  [(ngModel)]="accountId"
+                    required name="accountId" (change)="onAccountIdSelected()">
+                    <option>Select Account Id</option>
+                    <option *ngFor="let account of allAccounts">{{account.accountNumber}}</option>
+      
+                </select>
+            </div>
+      </div>
+</div>
+      
+      <div class="row">
+            <div class="col-md-6">
+              Select the Page Count : <select [(ngModel)]="pageCount">
+                <option value=5 selected>5</option>
+                <option value=10>10</option>
+                <option value=15>15</option>
+              </select>
+            </div>
+            <div class="col-md-6">
+              <pagination-controls (pageChange)="p = $event"></pagination-controls>
+            </div>
+      </div>
+
+
+
+<div class="card" style="padding:7px">
+      <div class="card-body">
+          <table class="table">
+              <thead class="thead-dark">
+                <tr>
+                  <th>Transaction Id</th>
+                  <th>Date</th>
+                  <th>Credit/Debit</th>
+                  <th>Transaction Amount</th>
+                  <th>Updated Balance</th>
+                  <th>From Account No</th>
+                  <th>To Account No</th>
+                </tr>
+              </thead>
+              <tbody >
+                <tr id="row-transaction" *ngFor="let transaction of temporary_Transactions | paginate: { itemsPerPage: pageCount, currentPage: p }">
+                  <td>{{transaction.transactionId}}</td>
+                  <td>{{transaction.date}}</td>
+                  <td>{{transaction.typeOfTransaction}}</td>
+                  <td>{{transaction.transactionAmount | currency: 'USD': true }}</td>
+                  <td>{{transaction.updatedBalance | currency: 'USD': true }}</td>
+                  <td>{{transaction.fromAccountId}}</td>
+                  <td>{{transaction.toAccountId}}</td>
+                </tr>
+              </tbody>
+            </table>
+      </div>
+</div>

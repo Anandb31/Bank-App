@@ -1,0 +1,32 @@
+<!-- <ul>
+  <li *ngFor="let customer of customers">
+    <a [routerLink]="['/customers',customer.id]" 
+    routerLinkActive="router-link-active"> {{customer.customerName}} {{customer.customerId}}</a>
+  </li>
+</ul> -->
+<!-- <h2>Customer Modification</h2>
+<h1>{{currentCustomer.customerId}}</h1> -->
+<h1>Customer Modification</h1>
+<div id="alert" class="alert alert-danger alert-dismissible fade show" role="alert">
+  <b><strong>Note: </strong>Please select a Customer to modify.</b> 
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  </div>
+  <table class="table" id="main-table">
+    <thead class="thead-light">
+      <tr>
+        <th id="thead" scope="col">CustomerID</th>
+        <th id="thead" scope="col">CustomerName</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr  id="thead" id="table1" *ngFor="let customer of customers">
+        <td><a [routerLink]="['../modifySpecificCustomer',customer.customerId]" 
+          routerLinkActive="router-link-active">  {{customer.customerId}}</a></td>
+        <td><a [routerLink]="['../modifySpecificCustomer',customer.customerId]" 
+          routerLinkActive="router-link-active"> {{customer.customerName}}</a></td> 
+      </tr>
+    </tbody>
+  </table>
+  <router-outlet></router-outlet>

@@ -1,0 +1,125 @@
+/* .bg-1{
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),url(../../assets/images/home.jpg)no-repeat center fixed;
+    background-size:cover;
+    
+}
+.col1 h1{
+    color:white;
+    font-family: 'Roboto Slab', serif;
+    font-size: 70px;
+    padding:20px;
+}
+.col1 p{
+    font-size: 40px;
+    padding:10px;
+    color:white;
+    font-family: 'Pacifico', cursive;
+} */
+
+/* #carouselExampleIndicators{
+    height: 200px;
+    width: 1300px;
+} */
+
+#maindiv{
+    margin-top:2px;
+    padding-top:25px;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-bottom: 25px;
+    border: 4px;
+    border-color: black;
+    height:500px;
+    width:1300px;
+    /* background-color:#ff3636; */
+}
+
+#middle-card{
+    box-shadow: 0 4px 8px 0 rgba(26, 0, 0);
+}
+
+#middle{
+    border: 4px;
+    margin-top:2px;
+    padding-top:25px;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-bottom: 35px;
+    border-width: 2px;
+    border-color: #cc0001;
+    background-color: grey;
+}
+
+#heading{
+    color:black;
+    font-family: 'Roboto Slab', serif;
+    font-size: 70px;
+    padding:20px;
+}
+
+b{
+    color: #131516;
+}
+
+
+#footer{
+    background-color: black;
+    padding-top:15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 15px;
+}
+
+.fa{
+    color: white;
+}
+
+#copyright{
+    color: #ffffe6;
+    text-align: center;
+}
+
+ p{
+    font-size: 15px;
+    padding:5px;
+    color:BLACK;
+    /* font-family: 'Pacifico', cursive; */
+    font-family:'Times New Roman', Times, serif
+} 
+
+#footer-card{
+    color: #ffffe6;
+    background-color: #cc0001;
+    height: 220px;
+    box-shadow: 0 4px 8px 0 rgb(26, 0, 0);
+}
+
+#footer-card p{
+    color: white;
+}
+
+#footer-text{
+    font-size: 20px;
+    padding: 5px;
+    font-family: 'Times New Roman', Times, serif
+}
+
+.maprouter{
+    position:relative;
+    text-align:right;
+    height:300px;
+    width:300px;
+}
+
+h6{
+    color: white;
+    width: 300px;
+}
+
+.gmap_canvas{
+     overflow:hidden;
+     background:none!important;
+     height:500px;
+     width:600px;
+     box-shadow: 0 4px 8px 0 rgb(26, 0, 0);
+}

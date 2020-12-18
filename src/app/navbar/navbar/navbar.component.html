@@ -1,0 +1,36 @@
+<nav class="navbar navbar-expand-lg">
+    <a class="navbar-brand">
+        <img src="../../assets/images/dbslogo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+        <span id="CompName"> Online Banking System</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a id="menu" class="nav-link" *ngIf="!logInOrOut" [routerLink]="['/']">Home </a>
+        </li>
+        
+       
+        
+      </ul>
+      <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Login</button> -->
+      <!-- <div *ngIf="!(bankerService.login || customerService.login)" class="dropdown" > -->
+       <div *ngIf="!logInOrOut" class="dropdown" >
+          <button type="button" class="button" id="navbarbutton" data-toggle="dropdown">
+            <span>Login</span>
+          </button>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" [routerLink]="['customerLogin']">As Customer</a>
+            <a class="dropdown-item" [routerLink]="['bankerLogin']">As Banker</a>
+          </div>
+        </div>
+      <div *ngIf="logInOrOut">
+          <button type="button" class="button" id="navbarbutton" (click)="logout()">
+             <!-- <span [routerLink]="['logOut']">Logout</span>  -->Logout
+            </button>
+      </div>
+    </div>
+  </nav>
